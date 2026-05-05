@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Module 7: Finance & Accounting Software</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <h1>Enterprise Software Learning</h1>
+  <p>10 modules to understand how B2B business software works</p>
+</header>
+
+<main class="page">
+
+  <a href="index.html" class="back-link">&#8592; Back to all modules</a>
+
+  <div class="module-header">
+    <div class="tag">Module 7</div>
+    <h1>Finance &amp; Accounting Software</h1>
+    <p class="meta">~15 min read &nbsp;·&nbsp; 8-question quiz</p>
+  </div>
+
+  <div class="content">
+
+    <h2>The Role of Finance in an Enterprise</h2>
+    <p>Every dollar that enters or leaves an enterprise must be tracked, reported, and reconciled. The finance and accounting team is responsible for ensuring the books are accurate, complying with regulations, producing financial statements, and planning for the future. They rely heavily on software to do this at scale.</p>
+    <p>Finance software ranges from simple bookkeeping tools (like QuickBooks for small businesses) to complex enterprise platforms that handle multi-currency transactions, global consolidations, revenue recognition, and real-time financial forecasting.</p>
+
+    <div class="callout">
+      <strong>Finance is the gatekeeper of enterprise software purchases</strong>
+      In most enterprises, the finance team (or CFO) must approve any major software purchase. Understanding the CFO's concerns — ROI, total cost of ownership, compliance, and cash flow impact — is critical for anyone selling enterprise software.
+    </div>
+
+    <h2>Core Finance Concepts</h2>
+
+    <h3>General Ledger (GL)</h3>
+    <p>The general ledger is the master record of all financial transactions in the company. Every purchase, sale, expense, and asset is recorded here. The GL is the foundation of all financial reporting — balance sheets, income statements, and cash flow statements all pull from it.</p>
+
+    <h3>Chart of Accounts</h3>
+    <p>The chart of accounts is the organized list of every category the company uses to classify financial transactions — revenue, expenses, assets, liabilities. It's the taxonomy of the general ledger. Companies customize their chart of accounts to match their business model.</p>
+
+    <h3>Accounts Receivable (AR)</h3>
+    <p>Money that customers owe the company. AR software tracks outstanding invoices, sends payment reminders, and processes incoming payments. A key AR metric is <strong>DSO (Days Sales Outstanding)</strong> — the average number of days it takes to collect payment after a sale.</p>
+
+    <h3>Accounts Payable (AP)</h3>
+    <p>Money the company owes to vendors and suppliers. AP software manages the full procure-to-pay process: receiving invoices, routing them for approval, and processing payments. Automating AP reduces errors and captures early payment discounts.</p>
+
+    <h3>Revenue Recognition</h3>
+    <p>A critical concept in software companies: revenue recognition determines <em>when</em> revenue can be recorded on the books. Under accounting standards (ASC 606), a SaaS company can't record a full year's subscription upfront — it must recognize revenue ratably over the contract period. Finance software must handle this automatically.</p>
+
+    <h2>Types of Finance Software</h2>
+
+    <h3>Core Accounting / ERP (Finance Module)</h3>
+    <p>The foundation. Most enterprises run their accounting inside their ERP (SAP, Oracle, NetSuite, Microsoft Dynamics). For smaller companies, standalone accounting tools like <strong>QuickBooks, Xero, or Sage</strong> serve this purpose.</p>
+
+    <h3>FP&A Tools (Financial Planning & Analysis)</h3>
+    <p>FP&A software is used for budgeting, forecasting, and financial modeling — the "forward-looking" side of finance. The CFO's team uses these tools to build annual budgets, run scenario models, and produce board-ready financial presentations. Major vendors: <strong>Anaplan, Workday Adaptive Planning, OneStream, Planful</strong>.</p>
+
+    <h3>Expense Management</h3>
+    <p>Software that manages employee expenses — capturing receipts, routing approvals, enforcing spending policies, and syncing with accounting. Major vendors: <strong>Concur (SAP), Expensify, Brex, Navan</strong>.</p>
+
+    <h3>Procure-to-Pay (P2P)</h3>
+    <p>Platforms that manage the full purchasing process from requesting a purchase to paying the vendor. They include vendor management, purchase order creation, invoice processing, and payment. Major vendors: <strong>Coupa, Jaggaer, Ivalua</strong>.</p>
+
+    <h3>Billing & Subscription Management</h3>
+    <p>For SaaS and subscription businesses, specialized billing platforms manage pricing, subscriptions, invoicing, and revenue recognition. Major vendors: <strong>Stripe Billing, Zuora, Chargebee</strong>.</p>
+
+    <h2>Key Finance Metrics</h2>
+    <ul>
+      <li><strong>Gross Margin</strong> — Revenue minus cost of goods sold, expressed as a percentage. Measures how profitably the company sells its product.</li>
+      <li><strong>EBITDA</strong> — Earnings Before Interest, Taxes, Depreciation, and Amortization. A measure of operational profitability.</li>
+      <li><strong>Burn Rate</strong> — For startups: how fast the company is spending its cash reserves.</li>
+      <li><strong>DSO (Days Sales Outstanding)</strong> — How quickly customers pay their invoices.</li>
+      <li><strong>DPO (Days Payable Outstanding)</strong> — How long the company takes to pay its own vendors.</li>
+      <li><strong>Cash Conversion Cycle</strong> — How efficiently a company turns its investments in inventory and resources into cash.</li>
+    </ul>
+
+    <h2>Compliance and Audit</h2>
+    <p>Public companies and large enterprises are subject to significant financial regulations. In the US, public companies must comply with <strong>SOX (Sarbanes-Oxley)</strong>, which requires strict internal controls over financial reporting. Finance software must support audit trails — records of every change made to financial data, by whom, and when.</p>
+    <p>For global companies, finance software must also handle different accounting standards (US GAAP vs. IFRS) and multi-currency transactions across dozens of countries.</p>
+
+  </div>
+
+  <div class="quiz-section">
+    <h2>Quiz</h2>
+    <p class="quiz-intro">8 questions. Select an answer to see instant feedback. You need 6/8 to mark this module complete.</p>
+    <div id="quizContainer"></div>
+    <div class="quiz-results" id="quizResults">
+      <div class="score" id="scoreDisplay"></div>
+      <div class="score-label">correct answers</div>
+      <div class="result-msg" id="resultMsg"></div>
+      <div class="btn-row">
+        <button class="btn btn-outline" onclick="resetQuiz()">Retake Quiz</button>
+        <button class="btn btn-success" id="completeBtn" onclick="markComplete()" style="display:none">
+          Mark Module Complete &#10003;
+        </button>
+        <a href="index.html" class="btn btn-outline">Back to Home</a>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<script>
+  const questions = [
+    {
+      q: "What is the 'general ledger' in accounting?",
+      options: [
+        "A list of all employees and their salaries",
+        "The master record of all financial transactions in the company",
+        "A report showing customer payment history",
+        "The company's bank account statement"
+      ],
+      correct: 1,
+      explanation: "The general ledger (GL) is the central record of all financial transactions — every revenue, expense, asset, and liability entry. All financial statements (balance sheet, income statement) are derived from it."
+    },
+    {
+      q: "What does 'Accounts Receivable' (AR) represent?",
+      options: [
+        "Money the company owes to its vendors",
+        "Employee expense reimbursements pending approval",
+        "Money that customers owe to the company",
+        "The company's available cash reserves"
+      ],
+      correct: 2,
+      explanation: "Accounts Receivable (AR) is money owed to the company by its customers — invoices that have been sent but not yet paid. DSO (Days Sales Outstanding) measures how quickly AR is collected."
+    },
+    {
+      q: "What is 'revenue recognition' in SaaS accounting?",
+      options: [
+        "The process of recognizing top-performing sales employees",
+        "Recording cash payments when they are received",
+        "The accounting standard that determines when revenue can be officially recorded, often spread over a contract period",
+        "A method for forecasting future revenue"
+      ],
+      correct: 2,
+      explanation: "Revenue recognition (governed by ASC 606) determines when revenue can be recorded. A SaaS company can't book a full year's subscription as revenue on day one — it must recognize it ratably over the subscription period."
+    },
+    {
+      q: "What type of software is Anaplan or Workday Adaptive Planning?",
+      options: [
+        "CRM software for sales teams",
+        "Expense management software for employees",
+        "FP&A software for budgeting and financial forecasting",
+        "Billing software for subscription management"
+      ],
+      correct: 2,
+      explanation: "Anaplan and Workday Adaptive Planning are FP&A (Financial Planning & Analysis) tools. Finance teams use them to build budgets, run forecasting models, and produce scenario analyses for leadership."
+    },
+    {
+      q: "What does 'DSO' measure?",
+      options: [
+        "Daily Sales Output — how much revenue a salesperson generates per day",
+        "Data Storage Operations — the cost of storing financial records",
+        "Days Sales Outstanding — the average number of days to collect payment from customers",
+        "Departmental Spending Overview — a summary of team budgets"
+      ],
+      correct: 2,
+      explanation: "DSO (Days Sales Outstanding) measures how quickly customers pay their invoices after a sale. A high DSO means slow collections, which can create cash flow problems even if revenue is strong."
+    },
+    {
+      q: "What is SOX compliance?",
+      options: [
+        "A cybersecurity standard for protecting customer data",
+        "A US law requiring strict internal controls over financial reporting for public companies",
+        "An international accounting standard used by European companies",
+        "A software certification for ERP vendors"
+      ],
+      correct: 1,
+      explanation: "SOX (Sarbanes-Oxley Act) is a US law that requires public companies to maintain strict internal controls over financial reporting. Finance software must support audit trails and access controls to support SOX compliance."
+    },
+    {
+      q: "What is a 'procure-to-pay' (P2P) platform?",
+      options: [
+        "Software that manages the full purchasing process from requesting a purchase to paying the vendor",
+        "A payment gateway for processing customer credit card transactions",
+        "A tool for managing sales proposals and contracts",
+        "Software that handles employee payroll"
+      ],
+      correct: 0,
+      explanation: "Procure-to-pay (P2P) platforms manage the full purchasing lifecycle: requesting items, getting approval, issuing purchase orders, receiving invoices, and processing vendor payments. Major vendors include Coupa and Jaggaer."
+    },
+    {
+      q: "What does EBITDA measure?",
+      options: [
+        "A company's total annual revenue",
+        "The cost of employee benefits and compensation",
+        "Operational profitability before accounting for interest, taxes, depreciation, and amortization",
+        "The total amount of debt a company carries"
+      ],
+      correct: 2,
+      explanation: "EBITDA (Earnings Before Interest, Taxes, Depreciation, and Amortization) is a measure of operational profitability. It strips out financing decisions and accounting choices to show how profitably the core business operates."
+    }
+  ];
+
+  let answered = new Array(questions.length).fill(false);
+  let correct = new Array(questions.length).fill(false);
+
+  function buildQuiz() {
+    const container = document.getElementById("quizContainer");
+    container.innerHTML = "";
+    answered = new Array(questions.length).fill(false);
+    correct = new Array(questions.length).fill(false);
+    questions.forEach((q, qi) => {
+      const block = document.createElement("div");
+      block.className = "question-block";
+      const opts = q.options.map((opt, oi) => `
+        <label class="option" id="q${qi}_o${oi}">
+          <input type="radio" name="q${qi}" value="${oi}" onchange="handleAnswer(${qi}, ${oi})" />
+          ${opt}
+        </label>
+      `).join("");
+      block.innerHTML = `<div class="question-text">${qi + 1}. ${q.q}</div><div class="options">${opts}</div><div class="explanation" id="exp${qi}">${q.explanation}</div>`;
+      container.appendChild(block);
+    });
+    document.getElementById("quizResults").classList.remove("show");
+  }
+
+  function handleAnswer(qi, chosen) {
+    if (answered[qi]) return;
+    answered[qi] = true;
+    const q = questions[qi];
+    const isCorrect = chosen === q.correct;
+    correct[qi] = isCorrect;
+    q.options.forEach((_, oi) => {
+      const el = document.getElementById(`q${qi}_o${oi}`);
+      el.classList.add("disabled");
+      if (oi === q.correct) el.classList.add("correct");
+      else if (oi === chosen && !isCorrect) el.classList.add("wrong");
+    });
+    document.getElementById("exp" + qi).classList.add("show");
+    if (answered.every(Boolean)) showResults();
+  }
+
+  function showResults() {
+    const total = correct.filter(Boolean).length;
+    const passed = total >= 6;
+    document.getElementById("scoreDisplay").textContent = `${total} / ${questions.length}`;
+    const msg = document.getElementById("resultMsg");
+    msg.textContent = passed ? "Great work — module passed!" : "Keep studying and give it another try.";
+    msg.className = "result-msg " + (passed ? "pass" : "fail");
+    document.getElementById("quizResults").classList.add("show");
+    if (passed) document.getElementById("completeBtn").style.display = "inline-block";
+  }
+
+  function resetQuiz() { buildQuiz(); }
+
+  function markComplete() {
+    const completed = JSON.parse(localStorage.getItem("completedModules") || "[]");
+    if (!completed.includes(7)) { completed.push(7); localStorage.setItem("completedModules", JSON.stringify(completed)); }
+    window.location.href = "index.html";
+  }
+
+  buildQuiz();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Module 5: E-commerce & B2B Digital Commerce</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <h1>Enterprise Software Learning</h1>
+  <p>10 modules to understand how B2B business software works</p>
+</header>
+
+<main class="page">
+
+  <a href="index.html" class="back-link">&#8592; Back to all modules</a>
+
+  <div class="module-header">
+    <div class="tag">Module 5</div>
+    <h1>E-commerce &amp; B2B Digital Commerce</h1>
+    <p class="meta">~15 min read &nbsp;·&nbsp; 8-question quiz</p>
+  </div>
+
+  <div class="content">
+
+    <h2>E-commerce in a B2B Context</h2>
+    <p>When most people think of e-commerce, they think of Amazon or Shopify stores — consumers buying products online. But B2B e-commerce — businesses buying from other businesses online — is actually a much larger market and is growing rapidly.</p>
+    <p>Traditionally, B2B purchasing was handled entirely through salespeople: a buyer would call a rep, negotiate pricing, and place orders via phone, fax, or email. That model is being replaced by digital self-service — buyers want to research, configure, price, and purchase online, just like they do in their personal lives.</p>
+
+    <div class="callout">
+      <strong>B2B buyers are changing</strong>
+      A growing percentage of B2B buyers are millennials who grew up shopping online. They prefer to research independently, get pricing without talking to a salesperson, and complete purchases digitally. Companies that can't support this expect to lose deals to competitors who can.
+    </div>
+
+    <h2>B2B vs. B2C E-commerce</h2>
+    <p>B2B digital commerce is more complex than consumer e-commerce in several ways:</p>
+    <ul>
+      <li><strong>Negotiated pricing:</strong> B2B buyers often have custom pricing based on volume, contract terms, or their relationship with the vendor. The price a buyer sees online may be specific to their account.</li>
+      <li><strong>Complex products:</strong> B2B products often need configuration — selecting options, sizes, quantities, and specifications — before pricing can be calculated.</li>
+      <li><strong>Purchase approval workflows:</strong> Enterprise buyers often need manager approval before completing a purchase. The e-commerce system may need to support multi-step approval chains.</li>
+      <li><strong>Multiple buyers per account:</strong> A single company might have dozens of people who can place orders, each with different permissions and spending limits.</li>
+      <li><strong>Invoicing and payment terms:</strong> B2B buyers often pay on 30-, 60-, or 90-day terms via invoice rather than credit card at checkout.</li>
+    </ul>
+
+    <h2>Selling Models in B2B Commerce</h2>
+
+    <h3>Direct (Manufacturer to Buyer)</h3>
+    <p>A manufacturer or vendor sells directly to enterprise customers through their own website or sales team. This gives maximum control over pricing and customer experience but requires investment in sales and commerce infrastructure.</p>
+
+    <h3>Through Distributors / Resellers</h3>
+    <p>Many B2B products are sold through a network of distributors or resellers who buy in bulk and resell to end customers. Enterprise software often uses channel partners or VARs (Value-Added Resellers) who add implementation services on top of the software.</p>
+
+    <h3>Marketplace</h3>
+    <p>Platforms like Amazon Business, Alibaba, or industry-specific marketplaces aggregate many vendors in one place. Buyers can compare options and purchase from multiple vendors in a single transaction.</p>
+
+    <h2>Major E-commerce Platforms</h2>
+
+    <h3>Shopify / Shopify Plus</h3>
+    <p>Originally a B2C platform, Shopify has expanded its B2B capabilities. Shopify Plus (the enterprise tier) supports wholesale pricing, customer-specific catalogs, and B2B checkout flows. It's popular with mid-market companies for its ease of use.</p>
+
+    <h3>Magento (Adobe Commerce)</h3>
+    <p>An open-source platform with deep B2B capabilities — custom pricing, quote management, purchase approval workflows, and company account management. More complex to implement than Shopify but highly customizable.</p>
+
+    <h3>commercetools</h3>
+    <p>A modern, API-first commerce platform built for enterprises that need maximum flexibility. Rather than a traditional monolithic storefront, commercetools provides building blocks (APIs) that developers assemble into a custom commerce experience.</p>
+
+    <h3>SAP Commerce Cloud / Salesforce Commerce Cloud</h3>
+    <p>Enterprise-grade platforms integrated with their parent ecosystems (SAP ERP, Salesforce CRM). Chosen by large enterprises that want tight integration between their commerce and back-office systems.</p>
+
+    <h2>Headless Commerce</h2>
+    <p><strong>Headless commerce</strong> is an architecture where the front-end (what the customer sees) is decoupled from the back-end commerce engine. Instead of buying a pre-built storefront, the company builds its own front-end experience that communicates with the commerce platform via APIs.</p>
+    <p>This gives enterprises total control over the buyer experience — they can build exactly the interface they want — but it requires more development investment. Platforms like commercetools, Elastic Path, and VTEX are built for this model.</p>
+
+    <h2>CPQ: Configure, Price, Quote</h2>
+    <p>For complex B2B products, a separate tool called <strong>CPQ (Configure, Price, Quote)</strong> handles the process of customizing a product, calculating the correct price, and generating a formal quote. CPQ tools integrate with the CRM (so salespeople can build quotes in Salesforce) and the ERP (so pricing rules and inventory are accurate).</p>
+    <p>Major CPQ vendors include <strong>Salesforce CPQ, Conga, and PROS</strong>.</p>
+
+    <h2>Key B2B Commerce Metrics</h2>
+    <ul>
+      <li><strong>GMV (Gross Merchandise Value)</strong> — total value of orders processed through the platform</li>
+      <li><strong>AOV (Average Order Value)</strong> — average dollar value per order</li>
+      <li><strong>Conversion rate</strong> — % of visitors who complete a purchase</li>
+      <li><strong>Digital self-serve rate</strong> — % of orders placed without sales team involvement</li>
+      <li><strong>Reorder rate</strong> — how often existing customers come back to buy again</li>
+    </ul>
+
+  </div>
+
+  <div class="quiz-section">
+    <h2>Quiz</h2>
+    <p class="quiz-intro">8 questions. Select an answer to see instant feedback. You need 6/8 to mark this module complete.</p>
+    <div id="quizContainer"></div>
+    <div class="quiz-results" id="quizResults">
+      <div class="score" id="scoreDisplay"></div>
+      <div class="score-label">correct answers</div>
+      <div class="result-msg" id="resultMsg"></div>
+      <div class="btn-row">
+        <button class="btn btn-outline" onclick="resetQuiz()">Retake Quiz</button>
+        <button class="btn btn-success" id="completeBtn" onclick="markComplete()" style="display:none">
+          Mark Module Complete &#10003;
+        </button>
+        <a href="index.html" class="btn btn-outline">Back to Home</a>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<script>
+  const questions = [
+    {
+      q: "Which of the following is a key difference between B2B and B2C e-commerce?",
+      options: [
+        "B2B e-commerce is always cheaper to implement",
+        "B2B e-commerce often involves negotiated pricing and purchase approval workflows",
+        "B2C e-commerce requires more complex product configuration",
+        "B2B buyers always prefer talking to a salesperson"
+      ],
+      correct: 1,
+      explanation: "B2B e-commerce is more complex than B2C because it involves custom pricing per account, multi-step purchase approvals, invoice-based payment, and multiple buyers per company."
+    },
+    {
+      q: "What does 'CPQ' stand for?",
+      options: [
+        "Customer Purchase Qualification",
+        "Configure, Price, Quote",
+        "Commerce Platform Query",
+        "Contract Processing Queue"
+      ],
+      correct: 1,
+      explanation: "CPQ stands for Configure, Price, Quote. It's software that helps salespeople build accurate quotes for complex, configurable products by automating pricing rules and generating formal quote documents."
+    },
+    {
+      q: "What is 'headless commerce'?",
+      options: [
+        "An e-commerce store with no product images",
+        "A commerce architecture where the front-end and back-end are decoupled and connected via APIs",
+        "A B2B marketplace with no physical storefront",
+        "E-commerce software that runs without a server"
+      ],
+      correct: 1,
+      explanation: "Headless commerce separates the customer-facing front-end from the back-end commerce engine. The front-end is custom-built and communicates with the commerce platform via APIs, giving enterprises maximum design and experience flexibility."
+    },
+    {
+      q: "Which platform is known as 'API-first' and built for enterprises needing maximum commerce flexibility?",
+      options: [
+        "Shopify",
+        "WooCommerce",
+        "commercetools",
+        "BigCommerce"
+      ],
+      correct: 2,
+      explanation: "commercetools is a modern, API-first commerce platform. Rather than a pre-built storefront, it provides commerce capabilities as APIs that development teams assemble into custom experiences."
+    },
+    {
+      q: "What does 'GMV' measure in e-commerce?",
+      options: [
+        "Gross Marketing Value — the budget spent on marketing",
+        "General Merchandise Volume — the number of products in the catalog",
+        "Gross Merchandise Value — the total dollar value of orders processed",
+        "Growth Multiplier Variable — a metric for forecasting revenue growth"
+      ],
+      correct: 2,
+      explanation: "GMV (Gross Merchandise Value) is the total value of orders processed through a platform. It's a top-level measure of commerce volume, though it doesn't account for returns or fees."
+    },
+    {
+      q: "Why do B2B companies sell through resellers or VARs?",
+      options: [
+        "Because direct sales are illegal in most industries",
+        "To reach more customers and add implementation services without building the capability internally",
+        "Because resellers offer lower prices than the manufacturer",
+        "To avoid dealing with enterprise procurement departments"
+      ],
+      correct: 1,
+      explanation: "VARs (Value-Added Resellers) help vendors reach more customers and add services (implementation, training, support) that the vendor may not want to provide directly. It's a common go-to-market strategy in enterprise software."
+    },
+    {
+      q: "What payment model is typical in B2B commerce?",
+      options: [
+        "Cash on delivery",
+        "Credit card at checkout, same as B2C",
+        "Cryptocurrency payments",
+        "Net 30/60/90 payment terms via invoice"
+      ],
+      correct: 3,
+      explanation: "B2B buyers typically pay on credit terms — Net 30, 60, or 90 days — meaning they receive an invoice and pay within a set period. This is fundamentally different from consumer e-commerce where payment is immediate."
+    },
+    {
+      q: "What trend is driving enterprise buyers to prefer digital self-service purchasing?",
+      options: [
+        "Enterprises are cutting sales headcount to reduce costs",
+        "B2B buyers increasingly expect the same digital experience they have as consumers",
+        "Digital purchases are always cheaper than sales-assisted ones",
+        "Salespeople are prohibited from selling certain enterprise products"
+      ],
+      correct: 1,
+      explanation: "A growing share of B2B buyers — many of whom are millennials accustomed to consumer e-commerce — prefer to research, configure, and buy without involving a salesperson. This is driving enterprises to invest in self-serve digital commerce."
+    }
+  ];
+
+  let answered = new Array(questions.length).fill(false);
+  let correct = new Array(questions.length).fill(false);
+
+  function buildQuiz() {
+    const container = document.getElementById("quizContainer");
+    container.innerHTML = "";
+    answered = new Array(questions.length).fill(false);
+    correct = new Array(questions.length).fill(false);
+    questions.forEach((q, qi) => {
+      const block = document.createElement("div");
+      block.className = "question-block";
+      const opts = q.options.map((opt, oi) => `
+        <label class="option" id="q${qi}_o${oi}">
+          <input type="radio" name="q${qi}" value="${oi}" onchange="handleAnswer(${qi}, ${oi})" />
+          ${opt}
+        </label>
+      `).join("");
+      block.innerHTML = `<div class="question-text">${qi + 1}. ${q.q}</div><div class="options">${opts}</div><div class="explanation" id="exp${qi}">${q.explanation}</div>`;
+      container.appendChild(block);
+    });
+    document.getElementById("quizResults").classList.remove("show");
+  }
+
+  function handleAnswer(qi, chosen) {
+    if (answered[qi]) return;
+    answered[qi] = true;
+    const q = questions[qi];
+    const isCorrect = chosen === q.correct;
+    correct[qi] = isCorrect;
+    q.options.forEach((_, oi) => {
+      const el = document.getElementById(`q${qi}_o${oi}`);
+      el.classList.add("disabled");
+      if (oi === q.correct) el.classList.add("correct");
+      else if (oi === chosen && !isCorrect) el.classList.add("wrong");
+    });
+    document.getElementById("exp" + qi).classList.add("show");
+    if (answered.every(Boolean)) showResults();
+  }
+
+  function showResults() {
+    const total = correct.filter(Boolean).length;
+    const passed = total >= 6;
+    document.getElementById("scoreDisplay").textContent = `${total} / ${questions.length}`;
+    const msg = document.getElementById("resultMsg");
+    msg.textContent = passed ? "Great work — module passed!" : "Keep studying and give it another try.";
+    msg.className = "result-msg " + (passed ? "pass" : "fail");
+    document.getElementById("quizResults").classList.add("show");
+    if (passed) document.getElementById("completeBtn").style.display = "inline-block";
+  }
+
+  function resetQuiz() { buildQuiz(); }
+
+  function markComplete() {
+    const completed = JSON.parse(localStorage.getItem("completedModules") || "[]");
+    if (!completed.includes(5)) { completed.push(5); localStorage.setItem("completedModules", JSON.stringify(completed)); }
+    window.location.href = "index.html";
+  }
+
+  buildQuiz();
+</script>
+
+</body>
+</html>

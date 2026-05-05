@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enterprise Software Learning App</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <h1>Enterprise Software Learning</h1>
+  <p>10 modules to understand how B2B business software works</p>
+</header>
+
+<main class="page">
+
+  <div class="progress-bar-wrap">
+    <div class="progress-bar-fill" id="progressFill" style="width: 0%"></div>
+  </div>
+  <p class="progress-label" id="progressLabel">0 of 10 modules complete</p>
+
+  <div class="module-grid" id="moduleGrid"></div>
+
+  <div id="finalQuizWrap" style="display:none; margin-top: 32px; text-align: center;">
+    <div style="border: 2px solid #2563eb; border-radius: 12px; padding: 28px; background: #eff6ff;">
+      <div style="font-size: 1.1rem; font-weight: 700; color: #1e293b; margin-bottom: 8px;">All modules complete!</div>
+      <p style="font-size: 0.9rem; color: #475569; margin-bottom: 20px;">You're ready for the final 16-question comprehensive assessment.</p>
+      <a href="quiz.html" class="btn btn-primary">Take the Final Quiz</a>
+    </div>
+  </div>
+
+</main>
+
+<script>
+  const modules = [
+    {
+      id: 1,
+      title: "How Enterprise Businesses Operate",
+      description: "Org structure, departments, and how large companies run.",
+      file: "module1.html"
+    },
+    {
+      id: 2,
+      title: "Enterprise Sales & the B2B Sales Cycle",
+      description: "How B2B deals are sourced, managed, and closed.",
+      file: "module2.html"
+    },
+    {
+      id: 3,
+      title: "CRM Systems",
+      description: "What CRMs do, who uses them, and why they matter.",
+      file: "module3.html"
+    },
+    {
+      id: 4,
+      title: "Marketing & the MarTech Stack",
+      description: "How enterprise marketing teams operate and their tools.",
+      file: "module4.html"
+    },
+    {
+      id: 5,
+      title: "E-commerce & B2B Digital Commerce",
+      description: "Online selling models and platforms in B2B contexts.",
+      file: "module5.html"
+    },
+    {
+      id: 6,
+      title: "ERP Systems",
+      description: "The operational backbone: SAP, Oracle, NetSuite.",
+      file: "module6.html"
+    },
+    {
+      id: 7,
+      title: "Finance & Accounting Software",
+      description: "How enterprises manage financial data and reporting.",
+      file: "module7.html"
+    },
+    {
+      id: 8,
+      title: "Data, Databases & Analytics",
+      description: "How enterprises store, query, and visualize data.",
+      file: "module8.html"
+    },
+    {
+      id: 9,
+      title: "Customer Success & Support Systems",
+      description: "Post-sale tools: ticketing, CS platforms, health scores.",
+      file: "module9.html"
+    },
+    {
+      id: 10,
+      title: "Integration & APIs",
+      description: "How enterprise systems connect and share data.",
+      file: "module10.html"
+    }
+  ];
+
+  function getCompleted() {
+    return JSON.parse(localStorage.getItem("completedModules") || "[]");
+  }
+
+  function renderGrid() {
+    const completed = getCompleted();
+    const grid = document.getElementById("moduleGrid");
+    grid.innerHTML = "";
+
+    modules.forEach((mod, i) => {
+      const isDone = completed.includes(mod.id);
+      const isFirst = i === 0;
+      const prevDone = i === 0 || completed.includes(modules[i - 1].id);
+      const isLocked = !isDone && !prevDone && !isFirst;
+
+      const card = document.createElement("div");
+      card.className = "module-card" + (isDone ? " completed" : "") + (isLocked ? " locked" : "");
+
+      let badge = isDone
+        ? `<span class="badge done">&#10003; Complete</span>`
+        : isLocked
+          ? `<span class="badge locked">Locked</span>`
+          : `<span class="badge ready">Start</span>`;
+
+      card.innerHTML = `
+        <span class="module-number">Module ${mod.id}</span>
+        <h2>${mod.title}</h2>
+        <p>${mod.description}</p>
+        ${badge}
+      `;
+
+      if (!isLocked) {
+        card.style.cursor = "pointer";
+        card.addEventListener("click", () => {
+          window.location.href = mod.file;
+        });
+      }
+
+      grid.appendChild(card);
+    });
+
+    const numericCompleted = completed.filter(c => typeof c === "number");
+    const pct = Math.round((numericCompleted.length / modules.length) * 100);
+    document.getElementById("progressFill").style.width = pct + "%";
+    document.getElementById("progressLabel").textContent =
+      `${numericCompleted.length} of ${modules.length} modules complete`;
+
+    if (numericCompleted.length === modules.length) {
+      document.getElementById("finalQuizWrap").style.display = "block";
+    }
+  }
+
+  renderGrid();
+</script>
+
+</body>
+</html>

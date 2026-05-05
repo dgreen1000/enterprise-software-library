@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Module 6: ERP Systems</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <h1>Enterprise Software Learning</h1>
+  <p>10 modules to understand how B2B business software works</p>
+</header>
+
+<main class="page">
+
+  <a href="index.html" class="back-link">&#8592; Back to all modules</a>
+
+  <div class="module-header">
+    <div class="tag">Module 6</div>
+    <h1>ERP Systems</h1>
+    <p class="meta">~15 min read &nbsp;·&nbsp; 8-question quiz</p>
+  </div>
+
+  <div class="content">
+
+    <h2>What Is an ERP?</h2>
+    <p>An <strong>ERP (Enterprise Resource Planning)</strong> system is the operational backbone of a large company. It's a centralized software platform that manages and integrates the core business processes that keep a company running: finance, supply chain, inventory, manufacturing, procurement, and often HR.</p>
+    <p>The defining feature of an ERP is that it's a <strong>single system of record</strong> for operational data. Rather than having a separate system for finance, a separate one for inventory, and another for purchasing — all potentially out of sync — an ERP puts everything in one place. A purchase order, for example, automatically updates inventory levels, triggers an accounts payable entry, and creates a record in the general ledger — all in one transaction.</p>
+
+    <div class="callout">
+      <strong>ERP vs. CRM</strong>
+      The easiest way to remember the difference: a CRM manages customer-facing activity (sales, relationships, revenue). An ERP manages internal operations (finance, inventory, supply chain). They often integrate with each other — when a deal closes in the CRM, the contract flows into the ERP for invoicing and revenue recognition.
+    </div>
+
+    <h2>Core ERP Modules</h2>
+    <p>Most ERP systems are modular — companies can implement the pieces they need. Common modules include:</p>
+
+    <h3>Financial Management</h3>
+    <p>The general ledger, accounts payable (money the company owes), accounts receivable (money owed to the company), budgeting, and financial reporting. This is the most universally used ERP module — virtually every ERP implementation includes finance.</p>
+
+    <h3>Supply Chain Management</h3>
+    <p>Managing the flow of goods from suppliers to customers. This includes procurement (buying from vendors), warehouse management, logistics, and demand planning. Critical for manufacturers, distributors, and retailers.</p>
+
+    <h3>Inventory Management</h3>
+    <p>Tracking stock levels across warehouses, automating reorder points, and managing product locations. An inventory module ensures the company always knows what it has on hand and where it is.</p>
+
+    <h3>Manufacturing / Production</h3>
+    <p>Managing production schedules, bills of materials (the components that go into a product), work orders, and quality control. Essential for manufacturing companies.</p>
+
+    <h3>Human Capital Management (HCM)</h3>
+    <p>Managing employee records, payroll, benefits, and time tracking. Some ERPs include a full HCM module; others integrate with a dedicated HR system.</p>
+
+    <h3>Project Management</h3>
+    <p>For service businesses (like consulting firms), the ERP may include project management capabilities — tracking time, costs, and profitability by project.</p>
+
+    <h2>Major ERP Vendors</h2>
+
+    <h3>SAP</h3>
+    <p>The largest ERP vendor in the world. SAP S/4HANA is their flagship cloud ERP, used by many of the world's largest companies. SAP is powerful but notoriously complex and expensive to implement — SAP implementations often cost millions of dollars and take years. There's a massive ecosystem of SAP consultants and implementation partners.</p>
+
+    <h3>Oracle (Oracle Cloud ERP / Oracle Fusion)</h3>
+    <p>SAP's primary competitor at the enterprise level. Oracle Cloud ERP is a full-featured cloud platform strong in finance, supply chain, and manufacturing. Also well-known for its database technology that many ERPs run on.</p>
+
+    <h3>NetSuite (Oracle NetSuite)</h3>
+    <p>The leading cloud ERP for mid-market companies. NetSuite is more affordable and faster to implement than SAP or Oracle, making it the go-to choice for growing companies that have outgrown QuickBooks. Acquired by Oracle in 2016.</p>
+
+    <h3>Microsoft Dynamics 365</h3>
+    <p>Microsoft's ERP (and CRM) platform. Tightly integrated with the Microsoft ecosystem — Azure, Teams, Office 365. Popular with companies already committed to Microsoft infrastructure.</p>
+
+    <h3>Infor, Epicor, IFS</h3>
+    <p>Industry-specific ERPs targeting manufacturing, healthcare, construction, and field services. They compete by offering deep functionality for specific verticals that generalist ERPs may not cover as well.</p>
+
+    <h2>Why ERP Implementations Are Hard</h2>
+    <p>ERP implementations are among the most complex and risky IT projects a company can undertake. Common reasons they fail or go over budget:</p>
+    <ul>
+      <li><strong>Data migration:</strong> Moving years of data from legacy systems into the new ERP, cleaning it, and ensuring it's accurate is enormously time-consuming.</li>
+      <li><strong>Change management:</strong> An ERP changes how nearly every department does its job. Getting thousands of employees to adopt new workflows is a massive organizational challenge.</li>
+      <li><strong>Customization creep:</strong> Companies try to replicate their existing processes exactly in the new system, which requires expensive custom development that makes future upgrades difficult.</li>
+      <li><strong>Integration complexity:</strong> The ERP needs to talk to dozens of other systems — the CRM, e-commerce platform, HR system, and more.</li>
+    </ul>
+
+    <div class="callout">
+      <strong>The "vanilla implementation" principle</strong>
+      Experienced ERP consultants often advise clients to adopt the ERP's standard processes rather than customizing the system to match old workflows. It's cheaper, faster, and easier to upgrade — but it requires the client to change how they work, which is politically difficult.
+    </div>
+
+  </div>
+
+  <div class="quiz-section">
+    <h2>Quiz</h2>
+    <p class="quiz-intro">8 questions. Select an answer to see instant feedback. You need 6/8 to mark this module complete.</p>
+    <div id="quizContainer"></div>
+    <div class="quiz-results" id="quizResults">
+      <div class="score" id="scoreDisplay"></div>
+      <div class="score-label">correct answers</div>
+      <div class="result-msg" id="resultMsg"></div>
+      <div class="btn-row">
+        <button class="btn btn-outline" onclick="resetQuiz()">Retake Quiz</button>
+        <button class="btn btn-success" id="completeBtn" onclick="markComplete()" style="display:none">
+          Mark Module Complete &#10003;
+        </button>
+        <a href="index.html" class="btn btn-outline">Back to Home</a>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<script>
+  const questions = [
+    {
+      q: "What does ERP stand for?",
+      options: [
+        "Enterprise Revenue Platform",
+        "Enterprise Resource Planning",
+        "External Reporting Protocol",
+        "Employee Resource Portal"
+      ],
+      correct: 1,
+      explanation: "ERP stands for Enterprise Resource Planning. It's the integrated software platform that manages a company's core operational processes — finance, supply chain, inventory, manufacturing, and more."
+    },
+    {
+      q: "What is the key defining feature of an ERP system?",
+      options: [
+        "It only handles financial reporting",
+        "It is always hosted in the cloud",
+        "It serves as a single system of record for operational data across departments",
+        "It replaces the need for a CRM"
+      ],
+      correct: 2,
+      explanation: "The defining characteristic of an ERP is integration — it's a single system where one transaction (like a purchase order) automatically updates finance, inventory, and procurement records simultaneously."
+    },
+    {
+      q: "Which ERP vendor is the largest in the world and commonly used by Fortune 500 companies?",
+      options: [
+        "NetSuite",
+        "Epicor",
+        "Microsoft Dynamics",
+        "SAP"
+      ],
+      correct: 3,
+      explanation: "SAP is the world's largest ERP vendor. SAP S/4HANA is used by many of the world's largest companies and has a massive ecosystem of implementation partners and consultants."
+    },
+    {
+      q: "What is NetSuite best known for?",
+      options: [
+        "Being the ERP of choice for Fortune 100 manufacturers",
+        "Being a cloud ERP popular with mid-market companies that have outgrown simpler accounting tools",
+        "Providing free ERP software to nonprofits",
+        "Specializing exclusively in supply chain management"
+      ],
+      correct: 1,
+      explanation: "NetSuite (owned by Oracle) is the leading cloud ERP for mid-market companies. It's more affordable and faster to implement than SAP or Oracle, making it the common step up from QuickBooks for growing businesses."
+    },
+    {
+      q: "What does the 'accounts payable' module in an ERP manage?",
+      options: [
+        "Revenue owed to the company by customers",
+        "Employee payroll and benefits",
+        "Money the company owes to its vendors and suppliers",
+        "The company's investment accounts"
+      ],
+      correct: 2,
+      explanation: "Accounts payable (AP) manages the money a company owes to its vendors — tracking invoices received, approving payments, and processing outgoing payments. The opposite, accounts receivable (AR), manages money owed to the company."
+    },
+    {
+      q: "Why are ERP implementations considered high-risk projects?",
+      options: [
+        "ERP software is inherently buggy and frequently crashes",
+        "They require complex data migration, change management, integration, and often extensive customization",
+        "ERPs are only designed for companies with over 10,000 employees",
+        "ERP vendors rarely provide implementation support"
+      ],
+      correct: 1,
+      explanation: "ERP implementations are high-risk because they involve migrating large amounts of historical data, changing workflows across every department, integrating with many other systems, and managing organizational change — all at the same time."
+    },
+    {
+      q: "What is a 'bill of materials' (BOM) in ERP?",
+      options: [
+        "An invoice sent to a customer at the end of a project",
+        "A list of raw materials and components needed to manufacture a product",
+        "A financial report showing total costs for a billing period",
+        "A document that outlines ERP implementation costs"
+      ],
+      correct: 1,
+      explanation: "A bill of materials (BOM) is a list of all the components, sub-assemblies, and raw materials needed to produce a finished product. It's central to ERP manufacturing modules for scheduling production and managing inventory."
+    },
+    {
+      q: "What does the 'vanilla implementation' principle advise?",
+      options: [
+        "Always customize the ERP to exactly match existing business processes",
+        "Use only the financial module and add others later",
+        "Adopt the ERP's standard processes rather than customizing the software to match old workflows",
+        "Choose the simplest ERP on the market to reduce cost"
+      ],
+      correct: 2,
+      explanation: "The vanilla implementation principle advises companies to change their processes to match the ERP's standard workflows rather than the reverse. Custom code is expensive, slows upgrades, and creates technical debt."
+    }
+  ];
+
+  let answered = new Array(questions.length).fill(false);
+  let correct = new Array(questions.length).fill(false);
+
+  function buildQuiz() {
+    const container = document.getElementById("quizContainer");
+    container.innerHTML = "";
+    answered = new Array(questions.length).fill(false);
+    correct = new Array(questions.length).fill(false);
+    questions.forEach((q, qi) => {
+      const block = document.createElement("div");
+      block.className = "question-block";
+      const opts = q.options.map((opt, oi) => `
+        <label class="option" id="q${qi}_o${oi}">
+          <input type="radio" name="q${qi}" value="${oi}" onchange="handleAnswer(${qi}, ${oi})" />
+          ${opt}
+        </label>
+      `).join("");
+      block.innerHTML = `<div class="question-text">${qi + 1}. ${q.q}</div><div class="options">${opts}</div><div class="explanation" id="exp${qi}">${q.explanation}</div>`;
+      container.appendChild(block);
+    });
+    document.getElementById("quizResults").classList.remove("show");
+  }
+
+  function handleAnswer(qi, chosen) {
+    if (answered[qi]) return;
+    answered[qi] = true;
+    const q = questions[qi];
+    const isCorrect = chosen === q.correct;
+    correct[qi] = isCorrect;
+    q.options.forEach((_, oi) => {
+      const el = document.getElementById(`q${qi}_o${oi}`);
+      el.classList.add("disabled");
+      if (oi === q.correct) el.classList.add("correct");
+      else if (oi === chosen && !isCorrect) el.classList.add("wrong");
+    });
+    document.getElementById("exp" + qi).classList.add("show");
+    if (answered.every(Boolean)) showResults();
+  }
+
+  function showResults() {
+    const total = correct.filter(Boolean).length;
+    const passed = total >= 6;
+    document.getElementById("scoreDisplay").textContent = `${total} / ${questions.length}`;
+    const msg = document.getElementById("resultMsg");
+    msg.textContent = passed ? "Great work — module passed!" : "Keep studying and give it another try.";
+    msg.className = "result-msg " + (passed ? "pass" : "fail");
+    document.getElementById("quizResults").classList.add("show");
+    if (passed) document.getElementById("completeBtn").style.display = "inline-block";
+  }
+
+  function resetQuiz() { buildQuiz(); }
+
+  function markComplete() {
+    const completed = JSON.parse(localStorage.getItem("completedModules") || "[]");
+    if (!completed.includes(6)) { completed.push(6); localStorage.setItem("completedModules", JSON.stringify(completed)); }
+    window.location.href = "index.html";
+  }
+
+  buildQuiz();
+</script>
+
+</body>
+</html>

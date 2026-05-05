@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Module 10: Integration & APIs</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <h1>Enterprise Software Learning</h1>
+  <p>10 modules to understand how B2B business software works</p>
+</header>
+
+<main class="page">
+
+  <a href="index.html" class="back-link">&#8592; Back to all modules</a>
+
+  <div class="module-header">
+    <div class="tag">Module 10</div>
+    <h1>Integration &amp; APIs</h1>
+    <p class="meta">~15 min read &nbsp;·&nbsp; 8-question quiz</p>
+  </div>
+
+  <div class="content">
+
+    <h2>The Enterprise Integration Problem</h2>
+    <p>A typical enterprise uses dozens — sometimes hundreds — of software systems. The CRM tracks customers. The ERP manages finance and inventory. The marketing platform runs campaigns. The e-commerce site processes orders. The support system handles tickets. Each of these systems was probably purchased at different times, from different vendors, and built on different technologies.</p>
+    <p>The problem: data trapped in one system isn't available to the others. A closed deal in the CRM doesn't automatically create an invoice in the ERP. A new customer in the billing system doesn't automatically create an account in the support portal. Without integration, employees manually copy data between systems — which is slow, error-prone, and expensive.</p>
+
+    <div class="callout">
+      <strong>Integration is the connective tissue of the enterprise</strong>
+      Individual systems are valuable. Connected systems are transformative. When the CRM, ERP, support platform, and analytics stack share data in real time, the business operates with a level of visibility and efficiency that disconnected systems can't match.
+    </div>
+
+    <h2>What Is an API?</h2>
+    <p>An <strong>API (Application Programming Interface)</strong> is a defined way for two software systems to communicate with each other. Think of it as a waiter in a restaurant: you (one system) tell the waiter (the API) what you want, the waiter goes to the kitchen (another system), and comes back with the result.</p>
+    <p>Modern software is built with APIs in mind. Almost every enterprise SaaS product exposes an API so other tools can send it data or retrieve data from it. This is what makes integration possible.</p>
+
+    <h2>REST APIs</h2>
+    <p>The most common type of API today. <strong>REST (Representational State Transfer)</strong> APIs use standard web protocols (HTTP) and return data in JSON format. When you hear someone say "our product has an open API" or "we integrate with Salesforce via API," they almost always mean a REST API.</p>
+    <p>REST APIs use standard actions called HTTP methods:</p>
+    <ul>
+      <li><strong>GET</strong> — retrieve data</li>
+      <li><strong>POST</strong> — create new data</li>
+      <li><strong>PUT / PATCH</strong> — update existing data</li>
+      <li><strong>DELETE</strong> — remove data</li>
+    </ul>
+
+    <h2>Webhooks</h2>
+    <p>A <strong>webhook</strong> is a way for one system to notify another in real time when something happens. Rather than constantly checking ("did anything change?"), the source system sends a message the moment an event occurs.</p>
+    <p>Example: when a deal is marked Closed Won in Salesforce, a webhook fires instantly and sends the deal data to the ERP — triggering invoice creation automatically. Webhooks are how modern systems achieve real-time data flow without constant polling.</p>
+
+    <h2>Integration Approaches</h2>
+
+    <h3>Point-to-Point Integration</h3>
+    <p>Directly connecting two systems — System A talks directly to System B. Simple for small numbers of integrations, but as the number of systems grows, this creates a "spaghetti" of connections that becomes impossible to maintain.</p>
+
+    <h3>iPaaS (Integration Platform as a Service)</h3>
+    <p>A cloud platform that acts as a central hub for integrations. Instead of every system talking directly to every other system, they all connect to the iPaaS, which routes data between them. Much easier to manage at scale.</p>
+    <p>Major enterprise iPaaS vendors: <strong>MuleSoft (Salesforce), Dell Boomi, Workato, Informatica</strong>.</p>
+    <p>Simpler/low-code alternatives popular with mid-market companies: <strong>Zapier, Make (formerly Integromat), Tray.io</strong>.</p>
+
+    <h3>Middleware / ESB (Enterprise Service Bus)</h3>
+    <p>An older, on-premise approach to integration. ESBs were common before cloud iPaaS solutions existed. Many large enterprises still run on ESB infrastructure and are migrating to cloud iPaaS.</p>
+
+    <h2>EDI (Electronic Data Interchange)</h2>
+    <p><strong>EDI</strong> is a standardized format for exchanging business documents between companies — purchase orders, invoices, shipping notices. It's old technology (predating the internet) but still extremely common in industries like retail, logistics, and manufacturing where large companies require their suppliers to communicate in EDI format.</p>
+    <p>If a major retailer wants to source products from a small manufacturer, they may require the manufacturer to send purchase order confirmations and invoices via EDI. This creates significant overhead for smaller suppliers.</p>
+
+    <h2>Why Integration Matters for Consultants</h2>
+    <p>Integration is one of the most common — and most underestimated — challenges in enterprise software implementations. A few things to remember:</p>
+    <ul>
+      <li><strong>Every implementation involves integration work.</strong> A new CRM must connect to the ERP, the marketing platform, the data warehouse, and the support system. Integration can easily represent 30–50% of total implementation cost.</li>
+      <li><strong>Bad integration creates data quality problems.</strong> If the CRM and ERP have different customer records because the sync is broken, downstream decisions based on that data are unreliable.</li>
+      <li><strong>APIs have rate limits and versioning.</strong> API connections can break when a vendor releases a new API version. This is a real maintenance cost that clients often don't anticipate.</li>
+      <li><strong>"We'll just integrate it" is a red flag.</strong> When a client waves off integration concerns with "we'll figure it out," that's often where projects get into trouble.</li>
+    </ul>
+
+    <div class="callout">
+      <strong>The last mile of value</strong>
+      Even the best individual software products can fail to deliver ROI if they're not integrated with the rest of the stack. Helping clients plan and execute integrations well is often where consultants add the most lasting value.
+    </div>
+
+  </div>
+
+  <div class="quiz-section">
+    <h2>Quiz</h2>
+    <p class="quiz-intro">8 questions. Select an answer to see instant feedback. You need 6/8 to mark this module complete.</p>
+    <div id="quizContainer"></div>
+    <div class="quiz-results" id="quizResults">
+      <div class="score" id="scoreDisplay"></div>
+      <div class="score-label">correct answers</div>
+      <div class="result-msg" id="resultMsg"></div>
+      <div class="btn-row">
+        <button class="btn btn-outline" onclick="resetQuiz()">Retake Quiz</button>
+        <button class="btn btn-success" id="completeBtn" onclick="markComplete()" style="display:none">
+          Mark Module Complete &#10003;
+        </button>
+        <a href="index.html" class="btn btn-outline">Back to Home</a>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<script>
+  const questions = [
+    {
+      q: "What is an API?",
+      options: [
+        "A type of enterprise database used to store customer records",
+        "A defined way for two software systems to communicate with each other",
+        "A project management tool used in software development",
+        "An automated process that backs up enterprise data"
+      ],
+      correct: 1,
+      explanation: "An API (Application Programming Interface) is a defined interface that allows two software systems to communicate. It specifies what requests can be made, what format they use, and what responses to expect."
+    },
+    {
+      q: "What is a 'webhook'?",
+      options: [
+        "A tool for visually designing integrations without code",
+        "A type of API that only works with financial systems",
+        "A real-time notification sent by one system to another when a specific event occurs",
+        "A scheduled job that copies data between systems nightly"
+      ],
+      correct: 2,
+      explanation: "A webhook sends a real-time notification from one system to another the moment a specific event happens — like a deal closing in the CRM triggering an invoice in the ERP instantly, rather than waiting for a scheduled sync."
+    },
+    {
+      q: "What does 'iPaaS' stand for?",
+      options: [
+        "Internal Platform as a Service",
+        "Integration Platform as a Service",
+        "Internet Protocol and API Standard",
+        "Infrastructure Provisioning and Automation Service"
+      ],
+      correct: 1,
+      explanation: "iPaaS (Integration Platform as a Service) is a cloud platform that acts as a central hub for connecting multiple software systems, replacing the need for point-to-point integrations between every pair of systems."
+    },
+    {
+      q: "Which of these is a major enterprise iPaaS vendor?",
+      options: [
+        "Salesforce",
+        "Snowflake",
+        "MuleSoft",
+        "Zendesk"
+      ],
+      correct: 2,
+      explanation: "MuleSoft (now owned by Salesforce) is one of the leading enterprise iPaaS vendors. Others include Dell Boomi, Workato, and Informatica. Simpler alternatives for mid-market include Zapier and Make."
+    },
+    {
+      q: "What is the problem with 'point-to-point' integration as the number of systems grows?",
+      options: [
+        "Point-to-point integrations are always insecure",
+        "It creates a complex web of direct connections that becomes difficult to maintain at scale",
+        "Point-to-point only works between systems from the same vendor",
+        "It requires buying additional hardware for each connection"
+      ],
+      correct: 1,
+      explanation: "Point-to-point integration connects each system directly to every other system. With many systems, this creates a 'spaghetti' of connections. An iPaaS solves this by acting as a central hub instead."
+    },
+    {
+      q: "What is EDI used for?",
+      options: [
+        "Encrypting data stored in cloud databases",
+        "Standardized electronic exchange of business documents between companies",
+        "A modern API standard replacing REST",
+        "Employee directory and identity management"
+      ],
+      correct: 1,
+      explanation: "EDI (Electronic Data Interchange) is a standardized format for exchanging business documents — purchase orders, invoices, shipping notices — between companies. It's old technology but still common in retail, logistics, and manufacturing."
+    },
+    {
+      q: "In a REST API, what does a 'GET' request do?",
+      options: [
+        "Creates new data in the target system",
+        "Deletes a record from the target system",
+        "Retrieves data from the target system",
+        "Updates an existing record in the target system"
+      ],
+      correct: 2,
+      explanation: "In REST APIs, GET is used to retrieve data — like fetching a customer record or a list of deals. POST creates, PUT/PATCH updates, and DELETE removes data."
+    },
+    {
+      q: "Why is integration often underestimated in enterprise software projects?",
+      options: [
+        "Integration is always handled automatically by modern software",
+        "Clients usually have internal teams that handle integration with no external help needed",
+        "Integration work can represent 30-50% of implementation cost and cause data quality and maintenance problems that aren't visible upfront",
+        "Vendors always provide free integration support with their products"
+      ],
+      correct: 2,
+      explanation: "Integration is commonly underestimated because its complexity isn't obvious at the start of a project. Connecting systems can represent a large portion of total cost, and broken integrations cause data quality problems that ripple across the business."
+    }
+  ];
+
+  let answered = new Array(questions.length).fill(false);
+  let correct = new Array(questions.length).fill(false);
+
+  function buildQuiz() {
+    const container = document.getElementById("quizContainer");
+    container.innerHTML = "";
+    answered = new Array(questions.length).fill(false);
+    correct = new Array(questions.length).fill(false);
+    questions.forEach((q, qi) => {
+      const block = document.createElement("div");
+      block.className = "question-block";
+      const opts = q.options.map((opt, oi) => `
+        <label class="option" id="q${qi}_o${oi}">
+          <input type="radio" name="q${qi}" value="${oi}" onchange="handleAnswer(${qi}, ${oi})" />
+          ${opt}
+        </label>
+      `).join("");
+      block.innerHTML = `<div class="question-text">${qi + 1}. ${q.q}</div><div class="options">${opts}</div><div class="explanation" id="exp${qi}">${q.explanation}</div>`;
+      container.appendChild(block);
+    });
+    document.getElementById("quizResults").classList.remove("show");
+  }
+
+  function handleAnswer(qi, chosen) {
+    if (answered[qi]) return;
+    answered[qi] = true;
+    const q = questions[qi];
+    const isCorrect = chosen === q.correct;
+    correct[qi] = isCorrect;
+    q.options.forEach((_, oi) => {
+      const el = document.getElementById(`q${qi}_o${oi}`);
+      el.classList.add("disabled");
+      if (oi === q.correct) el.classList.add("correct");
+      else if (oi === chosen && !isCorrect) el.classList.add("wrong");
+    });
+    document.getElementById("exp" + qi).classList.add("show");
+    if (answered.every(Boolean)) showResults();
+  }
+
+  function showResults() {
+    const total = correct.filter(Boolean).length;
+    const passed = total >= 6;
+    document.getElementById("scoreDisplay").textContent = `${total} / ${questions.length}`;
+    const msg = document.getElementById("resultMsg");
+    msg.textContent = passed ? "Great work — module passed!" : "Keep studying and give it another try.";
+    msg.className = "result-msg " + (passed ? "pass" : "fail");
+    document.getElementById("quizResults").classList.add("show");
+    if (passed) document.getElementById("completeBtn").style.display = "inline-block";
+  }
+
+  function resetQuiz() { buildQuiz(); }
+
+  function markComplete() {
+    const completed = JSON.parse(localStorage.getItem("completedModules") || "[]");
+    if (!completed.includes(10)) { completed.push(10); localStorage.setItem("completedModules", JSON.stringify(completed)); }
+    window.location.href = "index.html";
+  }
+
+  buildQuiz();
+</script>
+
+</body>
+</html>

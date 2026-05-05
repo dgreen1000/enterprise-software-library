@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Module 8: Data, Databases & Analytics</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <h1>Enterprise Software Learning</h1>
+  <p>10 modules to understand how B2B business software works</p>
+</header>
+
+<main class="page">
+
+  <a href="index.html" class="back-link">&#8592; Back to all modules</a>
+
+  <div class="module-header">
+    <div class="tag">Module 8</div>
+    <h1>Data, Databases &amp; Analytics</h1>
+    <p class="meta">~15 min read &nbsp;·&nbsp; 8-question quiz</p>
+  </div>
+
+  <div class="content">
+
+    <h2>Why Data Matters in Enterprise</h2>
+    <p>Every enterprise system — the CRM, ERP, marketing platform, e-commerce site — generates data constantly. Transactions, customer interactions, inventory movements, website visits, support tickets. The ability to collect, store, and analyze this data is what separates companies that make decisions based on facts from those that rely on gut instinct.</p>
+    <p>Data infrastructure is now considered a strategic asset. Companies invest heavily in data warehouses, analytics tools, and data science teams to turn raw data into actionable insights.</p>
+
+    <div class="callout">
+      <strong>Data is the new oil — but only if you can refine it</strong>
+      Raw data sitting in disconnected systems is nearly worthless. The value comes from bringing it together, cleaning it, and building the tools that let business users ask questions and get answers. This is the job of the modern data stack.
+    </div>
+
+    <h2>Types of Data</h2>
+
+    <h3>Structured Data</h3>
+    <p>Data organized in rows and columns — like a spreadsheet or a database table. Sales transactions, customer records, and financial entries are structured data. It's easy to query and analyze using standard tools.</p>
+
+    <h3>Unstructured Data</h3>
+    <p>Data without a predefined format: emails, documents, images, video, social media posts, and call recordings. Unstructured data makes up the vast majority of enterprise data but is harder to analyze. AI and machine learning are increasingly used to extract value from it.</p>
+
+    <h3>Semi-structured Data</h3>
+    <p>Data with some organization but not a rigid schema — like JSON files, XML, or log files. APIs typically return data in JSON format, which is semi-structured.</p>
+
+    <h2>Databases</h2>
+    <p>A <strong>database</strong> is an organized collection of data that can be queried and updated efficiently. There are two main categories:</p>
+
+    <h3>Relational Databases (SQL)</h3>
+    <p>Store data in tables with rows and columns. Relationships between tables are defined by keys. You query them using <strong>SQL (Structured Query Language)</strong>. Relational databases are the backbone of most enterprise systems. Major vendors: <strong>PostgreSQL, MySQL, Microsoft SQL Server, Oracle Database</strong>.</p>
+
+    <h3>Non-relational Databases (NoSQL)</h3>
+    <p>Designed for flexibility and scale — storing data as documents, key-value pairs, or graphs rather than rigid tables. Used when the data structure varies or the volume is enormous. Major vendors: <strong>MongoDB, DynamoDB (AWS), Cassandra, Redis</strong>.</p>
+
+    <h2>The Modern Data Stack</h2>
+    <p>Large enterprises don't run analytics directly on their operational databases (that would slow them down). Instead, they build a separate data infrastructure:</p>
+
+    <h3>Data Warehouse</h3>
+    <p>A centralized repository where data from many systems is consolidated for analysis. Unlike operational databases (optimized for fast writes), data warehouses are optimized for fast reads across large datasets. Major vendors: <strong>Snowflake, Google BigQuery, Amazon Redshift, Databricks</strong>.</p>
+
+    <h3>ETL / ELT (Data Pipelines)</h3>
+    <p><strong>ETL (Extract, Transform, Load)</strong> is the process of pulling data from source systems, cleaning and transforming it, and loading it into the data warehouse. Modern tools often do ELT instead — loading raw data first, then transforming it inside the warehouse. Major vendors: <strong>Fivetran, Airbyte, dbt (for transformation)</strong>.</p>
+
+    <h3>BI Tools (Business Intelligence)</h3>
+    <p>The front-end where business users interact with data — building dashboards, running reports, and exploring charts. BI tools connect to the data warehouse and let non-technical users answer data questions without writing code. Major vendors: <strong>Tableau, Microsoft Power BI, Looker (Google), Metabase, Sigma</strong>.</p>
+
+    <h2>Key Analytics Concepts</h2>
+
+    <h3>KPIs (Key Performance Indicators)</h3>
+    <p>The metrics that matter most to the business. Every department has KPIs: sales tracks pipeline and win rate, marketing tracks MQLs and CAC, finance tracks gross margin and burn rate. A good analytics setup makes KPIs visible in real time.</p>
+
+    <h3>Cohort Analysis</h3>
+    <p>Grouping users or customers by when they started (e.g., "customers who signed up in Q1 2025") and tracking their behavior over time. Used to measure retention, churn patterns, and the impact of product changes.</p>
+
+    <h3>A/B Testing</h3>
+    <p>Showing two versions of something (a webpage, email, or product feature) to different groups of users simultaneously to determine which performs better. Used extensively by marketing and product teams.</p>
+
+    <h2>Data Governance and Security</h2>
+    <p>With great data comes great responsibility. Enterprises must manage:</p>
+    <ul>
+      <li><strong>Data privacy:</strong> Regulations like GDPR (Europe) and CCPA (California) restrict how personal data is collected, stored, and used.</li>
+      <li><strong>Data governance:</strong> Defining who owns data, who can access it, and ensuring its quality and accuracy.</li>
+      <li><strong>Security:</strong> Protecting sensitive data (financial records, customer PII) from breaches.</li>
+    </ul>
+
+  </div>
+
+  <div class="quiz-section">
+    <h2>Quiz</h2>
+    <p class="quiz-intro">8 questions. Select an answer to see instant feedback. You need 6/8 to mark this module complete.</p>
+    <div id="quizContainer"></div>
+    <div class="quiz-results" id="quizResults">
+      <div class="score" id="scoreDisplay"></div>
+      <div class="score-label">correct answers</div>
+      <div class="result-msg" id="resultMsg"></div>
+      <div class="btn-row">
+        <button class="btn btn-outline" onclick="resetQuiz()">Retake Quiz</button>
+        <button class="btn btn-success" id="completeBtn" onclick="markComplete()" style="display:none">
+          Mark Module Complete &#10003;
+        </button>
+        <a href="index.html" class="btn btn-outline">Back to Home</a>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<script>
+  const questions = [
+    {
+      q: "What is a 'data warehouse' used for?",
+      options: [
+        "Physically storing servers and hardware",
+        "Running the operational databases that power live applications",
+        "Consolidating data from multiple systems into a central repository optimized for analysis",
+        "Backing up files and documents for disaster recovery"
+      ],
+      correct: 2,
+      explanation: "A data warehouse consolidates data from many source systems (CRM, ERP, marketing tools) into one place, optimized for fast analytical queries. Unlike operational databases, they're built for reporting and analysis."
+    },
+    {
+      q: "What does SQL stand for?",
+      options: [
+        "Structured Query Language",
+        "Sequential Queue Logic",
+        "System Query Library",
+        "Structured Quality Layer"
+      ],
+      correct: 0,
+      explanation: "SQL (Structured Query Language) is the standard language for querying relational databases. It's used to retrieve, insert, update, and delete data stored in tables."
+    },
+    {
+      q: "Which of these is an example of 'unstructured data'?",
+      options: [
+        "A spreadsheet of sales transactions",
+        "A customer database with names and email addresses",
+        "A call recording from a sales call",
+        "An invoice with line items and totals"
+      ],
+      correct: 2,
+      explanation: "Unstructured data has no predefined format — call recordings, emails, images, and documents are classic examples. They contain valuable information but are harder to analyze than structured data in rows and columns."
+    },
+    {
+      q: "What is Snowflake?",
+      options: [
+        "A BI (business intelligence) tool for building dashboards",
+        "A cloud data warehouse platform for storing and querying large datasets",
+        "An ETL tool for moving data between systems",
+        "A NoSQL database used for document storage"
+      ],
+      correct: 1,
+      explanation: "Snowflake is one of the most popular cloud data warehouse platforms. Companies use it to centralize data from many systems and run analytical queries at scale."
+    },
+    {
+      q: "What does 'ETL' stand for?",
+      options: [
+        "Enterprise Technology Layer",
+        "Extract, Transform, Load",
+        "External Transfer Language",
+        "Event Tracking and Logging"
+      ],
+      correct: 1,
+      explanation: "ETL (Extract, Transform, Load) is the process of pulling data from source systems, cleaning and reshaping it, and loading it into a data warehouse. Modern tools often flip this to ELT — loading raw data first, then transforming."
+    },
+    {
+      q: "What is a BI (Business Intelligence) tool used for?",
+      options: [
+        "Running the company's financial accounting",
+        "Building dashboards and reports so business users can explore data without writing code",
+        "Storing customer records and transaction history",
+        "Managing data pipelines between systems"
+      ],
+      correct: 1,
+      explanation: "BI tools like Tableau, Power BI, and Looker let non-technical business users explore data, build dashboards, and generate reports by connecting to the data warehouse — no SQL required."
+    },
+    {
+      q: "What privacy regulation governs how companies handle personal data for European residents?",
+      options: [
+        "SOX (Sarbanes-Oxley Act)",
+        "HIPAA (Health Insurance Portability and Accountability Act)",
+        "GDPR (General Data Protection Regulation)",
+        "PCI DSS (Payment Card Industry Data Security Standard)"
+      ],
+      correct: 2,
+      explanation: "GDPR (General Data Protection Regulation) is the EU regulation governing how companies collect, store, and use personal data of European residents. Non-compliance can result in large fines."
+    },
+    {
+      q: "What is 'cohort analysis'?",
+      options: [
+        "Comparing two versions of a feature to see which performs better",
+        "Grouping users by when they started and tracking their behavior over time",
+        "Analyzing which marketing channels generate the most revenue",
+        "A method for cleaning duplicate records in a database"
+      ],
+      correct: 1,
+      explanation: "Cohort analysis groups users or customers by a shared characteristic (usually when they joined) and tracks their behavior over time. It's used to measure retention, churn patterns, and how product changes affect different groups of users."
+    }
+  ];
+
+  let answered = new Array(questions.length).fill(false);
+  let correct = new Array(questions.length).fill(false);
+
+  function buildQuiz() {
+    const container = document.getElementById("quizContainer");
+    container.innerHTML = "";
+    answered = new Array(questions.length).fill(false);
+    correct = new Array(questions.length).fill(false);
+    questions.forEach((q, qi) => {
+      const block = document.createElement("div");
+      block.className = "question-block";
+      const opts = q.options.map((opt, oi) => `
+        <label class="option" id="q${qi}_o${oi}">
+          <input type="radio" name="q${qi}" value="${oi}" onchange="handleAnswer(${qi}, ${oi})" />
+          ${opt}
+        </label>
+      `).join("");
+      block.innerHTML = `<div class="question-text">${qi + 1}. ${q.q}</div><div class="options">${opts}</div><div class="explanation" id="exp${qi}">${q.explanation}</div>`;
+      container.appendChild(block);
+    });
+    document.getElementById("quizResults").classList.remove("show");
+  }
+
+  function handleAnswer(qi, chosen) {
+    if (answered[qi]) return;
+    answered[qi] = true;
+    const q = questions[qi];
+    const isCorrect = chosen === q.correct;
+    correct[qi] = isCorrect;
+    q.options.forEach((_, oi) => {
+      const el = document.getElementById(`q${qi}_o${oi}`);
+      el.classList.add("disabled");
+      if (oi === q.correct) el.classList.add("correct");
+      else if (oi === chosen && !isCorrect) el.classList.add("wrong");
+    });
+    document.getElementById("exp" + qi).classList.add("show");
+    if (answered.every(Boolean)) showResults();
+  }
+
+  function showResults() {
+    const total = correct.filter(Boolean).length;
+    const passed = total >= 6;
+    document.getElementById("scoreDisplay").textContent = `${total} / ${questions.length}`;
+    const msg = document.getElementById("resultMsg");
+    msg.textContent = passed ? "Great work — module passed!" : "Keep studying and give it another try.";
+    msg.className = "result-msg " + (passed ? "pass" : "fail");
+    document.getElementById("quizResults").classList.add("show");
+    if (passed) document.getElementById("completeBtn").style.display = "inline-block";
+  }
+
+  function resetQuiz() { buildQuiz(); }
+
+  function markComplete() {
+    const completed = JSON.parse(localStorage.getItem("completedModules") || "[]");
+    if (!completed.includes(8)) { completed.push(8); localStorage.setItem("completedModules", JSON.stringify(completed)); }
+    window.location.href = "index.html";
+  }
+
+  buildQuiz();
+</script>
+
+</body>
+</html>

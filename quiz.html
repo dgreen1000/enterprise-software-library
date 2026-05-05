@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Final Quiz — Enterprise Software</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <h1>Enterprise Software Learning</h1>
+  <p>10 modules to understand how B2B business software works</p>
+</header>
+
+<main class="page">
+
+  <a href="index.html" class="back-link">&#8592; Back to all modules</a>
+
+  <div class="module-header">
+    <div class="tag">Final Quiz</div>
+    <h1>Enterprise Software: Comprehensive Assessment</h1>
+    <p class="meta">16 questions &nbsp;·&nbsp; Covers all 10 modules</p>
+  </div>
+
+  <div class="content">
+    <p>This quiz covers everything from all 10 modules. You need <strong>12 out of 16</strong> correct to pass. Good luck.</p>
+  </div>
+
+  <div class="quiz-section" style="border-top: none; padding-top: 16px; margin-top: 24px;">
+    <div id="quizContainer"></div>
+    <div class="quiz-results" id="quizResults">
+      <div class="score" id="scoreDisplay"></div>
+      <div class="score-label">correct answers</div>
+      <div class="result-msg" id="resultMsg"></div>
+      <div id="certificateWrap" style="display:none; margin-top: 24px;">
+        <div style="border: 2px solid #22c55e; border-radius: 12px; padding: 24px; background: #f0fdf4; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 8px;">&#127941;</div>
+          <div style="font-size: 1.2rem; font-weight: 700; color: #15803d;">Course Complete</div>
+          <div style="font-size: 0.9rem; color: #374151; margin-top: 8px;">You've completed all 10 modules and passed the final assessment.<br>You now have a solid foundation in enterprise software.</div>
+        </div>
+      </div>
+      <div class="btn-row">
+        <button class="btn btn-outline" onclick="resetQuiz()">Retake Quiz</button>
+        <a href="index.html" class="btn btn-outline">Back to Home</a>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<script>
+  const questions = [
+    {
+      q: "What is the primary difference between B2B and B2C sales?",
+      options: [
+        "B2B products are always more expensive than B2C products",
+        "B2B sales involve selling to other companies and typically have longer cycles and multiple decision-makers",
+        "B2C companies never use enterprise software",
+        "B2B sales always close faster because companies have more money"
+      ],
+      correct: 1,
+      explanation: "B2B (business-to-business) means selling to other companies. Enterprise B2B deals involve multiple stakeholders, long sales cycles (3–18 months), high deal values, and complex procurement processes."
+    },
+    {
+      q: "In a B2B sales team, what is the role of an SDR?",
+      options: [
+        "Closing deals and managing the full sales cycle",
+        "Managing existing customer accounts after the sale",
+        "Prospecting and booking meetings for Account Executives",
+        "Overseeing the entire sales department"
+      ],
+      correct: 2,
+      explanation: "SDRs (Sales Development Representatives) focus on prospecting — finding potential customers and making first contact to book meetings for AEs. They open conversations; AEs close them."
+    },
+    {
+      q: "What does a CRM system primarily track?",
+      options: [
+        "Financial transactions and accounts payable",
+        "Employee performance and HR records",
+        "Customer relationships, sales activities, contacts, and deals",
+        "Product inventory and supply chain data"
+      ],
+      correct: 2,
+      explanation: "A CRM (Customer Relationship Management) system tracks contacts, accounts, opportunities (deals), and all activities related to the sales and customer relationship process."
+    },
+    {
+      q: "What is Salesforce best known as?",
+      options: [
+        "The leading ERP for manufacturing companies",
+        "The dominant CRM platform in the enterprise market",
+        "An open-source database for large enterprises",
+        "A marketing analytics platform"
+      ],
+      correct: 1,
+      explanation: "Salesforce is the dominant CRM platform in the enterprise market. It's also grown into a broader platform covering marketing, service, and commerce — but CRM remains its core."
+    },
+    {
+      q: "What is an 'MQL' in B2B marketing?",
+      options: [
+        "A marketing budget category",
+        "A type of display advertisement",
+        "A Marketing Qualified Lead — a prospect ready for sales outreach based on engagement scoring",
+        "A monthly quota limit for marketing spend"
+      ],
+      correct: 2,
+      explanation: "MQL (Marketing Qualified Lead) is a prospect who has met certain engagement criteria and is deemed ready for the sales team to contact. Lead scoring determines when a prospect reaches MQL status."
+    },
+    {
+      q: "What does 'headless commerce' mean?",
+      options: [
+        "An e-commerce store with no product descriptions",
+        "Commerce where the front-end experience is decoupled from the back-end engine and connected via APIs",
+        "Selling products without a physical storefront",
+        "A Shopify feature for managing multiple storefronts"
+      ],
+      correct: 1,
+      explanation: "Headless commerce separates the customer-facing front-end from the commerce back-end. The front-end is custom-built and talks to the commerce platform via APIs, giving maximum design flexibility."
+    },
+    {
+      q: "What is the defining feature of an ERP system?",
+      options: [
+        "It only manages financial data",
+        "It replaces all other enterprise software",
+        "It is a single, integrated system of record for core operational processes across departments",
+        "It must be hosted on-premise, not in the cloud"
+      ],
+      correct: 2,
+      explanation: "The defining feature of an ERP is integration — one platform where finance, supply chain, inventory, and operations data all live together and update simultaneously, eliminating silos."
+    },
+    {
+      q: "Which ERP vendor is the largest in the world?",
+      options: [
+        "NetSuite",
+        "Microsoft Dynamics",
+        "SAP",
+        "Epicor"
+      ],
+      correct: 2,
+      explanation: "SAP is the world's largest ERP vendor. SAP S/4HANA is used by many of the world's largest enterprises. SAP implementations are powerful but complex and expensive."
+    },
+    {
+      q: "What does 'revenue recognition' mean in accounting?",
+      options: [
+        "Awarding bonuses to salespeople who hit quota",
+        "The accounting standard that determines when revenue can be officially recorded",
+        "Tracking which marketing channel generated a sale",
+        "A method for collecting overdue invoices"
+      ],
+      correct: 1,
+      explanation: "Revenue recognition (governed by ASC 606) determines when revenue can be booked. A SaaS company must recognize subscription revenue ratably over the contract period, not all upfront when cash is received."
+    },
+    {
+      q: "What is a data warehouse used for?",
+      options: [
+        "Storing hardware and physical servers",
+        "Running live operational applications",
+        "Centralizing data from multiple systems into one place optimized for analytics",
+        "Backing up email and document files"
+      ],
+      correct: 2,
+      explanation: "A data warehouse consolidates data from many systems (CRM, ERP, marketing) into one place optimized for analytical queries, enabling business intelligence reporting and data-driven decision making."
+    },
+    {
+      q: "What does NRR (Net Revenue Retention) above 100% indicate?",
+      options: [
+        "The company is spending more than it earns",
+        "The company is growing revenue from existing customers alone, even before new sales",
+        "All customers renewed their contracts",
+        "The company has no customer churn"
+      ],
+      correct: 1,
+      explanation: "NRR above 100% means that expansion revenue from existing customers more than offsets churn — the company's revenue base grows even without signing any new customers. This is a hallmark of a healthy SaaS business."
+    },
+    {
+      q: "What is Gainsight used for?",
+      options: [
+        "Running CRM and sales pipeline management",
+        "Managing customer support tickets",
+        "Customer Success management — tracking account health, usage, and automating CS playbooks",
+        "Financial forecasting and FP&A"
+      ],
+      correct: 2,
+      explanation: "Gainsight is the leading Customer Success platform. It aggregates data from the CRM, product, and support systems to give CSMs a 360-degree view of account health and automates key lifecycle actions."
+    },
+    {
+      q: "What is an API?",
+      options: [
+        "A type of enterprise database",
+        "A defined interface that allows two software systems to communicate",
+        "An automated backup process for enterprise data",
+        "A project management methodology used in software development"
+      ],
+      correct: 1,
+      explanation: "An API (Application Programming Interface) is a defined way for two systems to communicate. Modern enterprise software exposes APIs so other tools can send or retrieve data — enabling integration."
+    },
+    {
+      q: "What is an iPaaS?",
+      options: [
+        "A type of cloud database used for analytics",
+        "An Apple enterprise software product",
+        "Integration Platform as a Service — a cloud hub that connects multiple enterprise systems",
+        "A SaaS platform for IT service management"
+      ],
+      correct: 2,
+      explanation: "iPaaS (Integration Platform as a Service) is a cloud platform that connects multiple software systems, replacing point-to-point integrations. Major vendors include MuleSoft, Dell Boomi, and Workato."
+    },
+    {
+      q: "What does EBITDA measure?",
+      options: [
+        "Total annual revenue before deducting sales commissions",
+        "The total value of a company's assets",
+        "Operational profitability before interest, taxes, depreciation, and amortization",
+        "A company's total outstanding debt"
+      ],
+      correct: 2,
+      explanation: "EBITDA measures operational profitability by removing the effects of financing (interest), tax decisions, and non-cash charges (depreciation, amortization). It shows how profitably the core business operates."
+    },
+    {
+      q: "Why is integration often the most underestimated part of an enterprise software implementation?",
+      options: [
+        "Integration is always handled automatically by the software vendor",
+        "Clients are not allowed to integrate with third-party systems",
+        "Its complexity isn't obvious upfront — it can represent 30-50% of implementation cost and cause ongoing data quality problems",
+        "Integration only matters for companies with more than 10,000 employees"
+      ],
+      correct: 2,
+      explanation: "Integration is consistently underestimated because its complexity isn't visible at the start. Connecting systems can be a large portion of total project cost, and broken integrations cause data quality problems that impact every team relying on that data."
+    }
+  ];
+
+  let answered = new Array(questions.length).fill(false);
+  let correct = new Array(questions.length).fill(false);
+
+  function buildQuiz() {
+    const container = document.getElementById("quizContainer");
+    container.innerHTML = "";
+    answered = new Array(questions.length).fill(false);
+    correct = new Array(questions.length).fill(false);
+
+    questions.forEach((q, qi) => {
+      const block = document.createElement("div");
+      block.className = "question-block";
+      const opts = q.options.map((opt, oi) => `
+        <label class="option" id="q${qi}_o${oi}">
+          <input type="radio" name="q${qi}" value="${oi}" onchange="handleAnswer(${qi}, ${oi})" />
+          ${opt}
+        </label>
+      `).join("");
+      block.innerHTML = `<div class="question-text">${qi + 1}. ${q.q}</div><div class="options">${opts}</div><div class="explanation" id="exp${qi}">${q.explanation}</div>`;
+      container.appendChild(block);
+    });
+    document.getElementById("quizResults").classList.remove("show");
+  }
+
+  function handleAnswer(qi, chosen) {
+    if (answered[qi]) return;
+    answered[qi] = true;
+    const q = questions[qi];
+    const isCorrect = chosen === q.correct;
+    correct[qi] = isCorrect;
+    q.options.forEach((_, oi) => {
+      const el = document.getElementById(`q${qi}_o${oi}`);
+      el.classList.add("disabled");
+      if (oi === q.correct) el.classList.add("correct");
+      else if (oi === chosen && !isCorrect) el.classList.add("wrong");
+    });
+    document.getElementById("exp" + qi).classList.add("show");
+    if (answered.every(Boolean)) showResults();
+  }
+
+  function showResults() {
+    const total = correct.filter(Boolean).length;
+    const passed = total >= 12;
+    document.getElementById("scoreDisplay").textContent = `${total} / ${questions.length}`;
+    const msg = document.getElementById("resultMsg");
+    msg.textContent = passed
+      ? "Excellent — you passed the final assessment!"
+      : "Not quite — review the modules and try again.";
+    msg.className = "result-msg " + (passed ? "pass" : "fail");
+    document.getElementById("quizResults").classList.add("show");
+    if (passed) {
+      document.getElementById("certificateWrap").style.display = "block";
+      const completed = JSON.parse(localStorage.getItem("completedModules") || "[]");
+      if (!completed.includes("final")) {
+        completed.push("final");
+        localStorage.setItem("completedModules", JSON.stringify(completed));
+      }
+    }
+  }
+
+  function resetQuiz() { buildQuiz(); }
+
+  buildQuiz();
+</script>
+
+</body>
+</html>
